@@ -6,7 +6,7 @@ client.on('error', error => {
 });
 
 client.connect().then(r => {
-    console.log('Client connected')
+    console.log('Client connected');
 })
 
 let startDate = Date.now();
@@ -19,8 +19,7 @@ console.log(`Set: ${setResult} ms`);
 
 startDate = Date.now();
 for (let i = 0; i < 10000; i++) {
-    let element = client.get(`key${i}`);
-    console.log(element);
+    client.get(`key${i}`);
 }
 endDate = Date.now();
 getResult = endDate - startDate;

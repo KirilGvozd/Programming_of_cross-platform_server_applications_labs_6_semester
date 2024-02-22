@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Example</title>
+</head>
+<body>
+<div id="get_teachers"></div>
+<div id="success_message"></div>
+<div id="error_message"></div>
+<button id="getButton" type="button">GET</button>
+<form id="teacherForm">
+    <label for="teacher">Teacher:</label>
+    <input type="text" id="teacher" name="teacher">
+    <label for="teacher_name">Teacher Name:</label>
+    <input type="text" id="teacher_name" name="teacher_name">
+    <label for="pulpit">Pulpit:</label>
+    <input type="text" id="pulpit" name="pulpit">
+    <button id="postButton" type="button">POST</button>
+    <button id="putButton" type="button">PUT</button>
+</form>
+<form id="delete_teacher">
+    <label for="teacher_delete">Teacher:</label>
+    <input type="text" id="teacher_delete" name="teacher_delete">
+    <button id="del_button" type="button">DELETE</button>
+</form>
+<script>
+    document.getElementById('del_button').addEventListener('click', function() {
+        const formData = {
+            teacher: document.getElementById('teacher_delete').value
+        };
+
+        fetch(`/api/teachers/${formData.teacher}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to delete teacher');
+                }
+                return response.text();
+            })
+            .then(message => {
+                document.getElementById('success_message').innerText = 'Success: ' + message;
+            })
+            .catch(error => {
+                document.getElementById('error_message').innerText = 'Error: ' + error.message;
+            });
+    });
+
+    document.getElementById('getButton').addEventListener('click', function() {
+        fetch('/api/teachers', {
+            method: 'GET'
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch teachers');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('get_teachers').innerText = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                document.getElementById('error_message').innerText = 'Error: ' + error.message;
+            });
+    });
+
+    document.getElementById('postButton').addEventListener('click', function() {
+        const formData = {
+            teacher: document.getElementById('teacher').value,
+            teacher_name: document.getElementById('teacher_name').value,
+            pulpit: document.getElementById('pulpit').value
+        };
+
+        fetch('/api/teachers', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to add teacher');
+                }
+                return response.text();
+            })
+            .then(message => {
+                document.getElementById('success_message').innerText = 'Success: ' + message;
+            })
+            .catch(error => {
+                document.getElementById('error_message').innerText = 'Error: ' + error.message;
+            });
+    });
+
+    document.getElementById('putButton').addEventListener('click', function() {
+        const formData = {
+            teacher: document.getElementById('teacher').value,
+            teacher_name: document.getElementById('teacher_name').value,
+            pulpit: document.getElementById('pulpit').value
+        };
+
+        fetch('/api/teachers', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to update teacher');
+                }
+                return response.text();
+            })
+            .then(message => {
+                document.getElementById('success_message').innerText = 'Success: ' + message;
+            })
+            .catch(error => {
+                document.getElementById('error_message').innerText = 'Error: ' + error.message;
+            });
+    });
+
+    document.getElementById('teacher').addEventListener('blur', function() {
+        const teacherId = this.value;
+        fetch(`/api/teachers/${teacherId}`, {
+            method: 'GET'
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch teacher information');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Выводим информацию о преподавателе в другие поля формы
+                document.getElementById('teacher_name').value = data.TEACHER_NAME;
+                document.getElementById('pulpit').value = data.PULPIT;
+            })
+            .catch(error => {
+                document.getElementById('error_message').innerText = 'Error: ' + error.message;
+            });
+    });
+</script>
+</body>
+</html>
