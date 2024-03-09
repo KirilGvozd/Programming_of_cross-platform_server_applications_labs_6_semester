@@ -1,0 +1,27 @@
+<div class="form-part contacts" style="height: 79%;">
+    <div class="list-container" style="height: 30rem;">
+        {{#each contacts}}
+            {{> contact}}
+        {{/each}}
+    </div>
+</div>
+
+<form class="form" data-key="{{thisContact.id}}">
+    <input class="input" type="text" required name="name" placeholder="ФИО" value="{{thisContact.name}}"
+           oninput="blockButton('{{thisContact.name}}', '{{thisContact.phone}}')">
+
+    <input class="input" type="tel" required name="phone" placeholder="Телефон" value="{{thisContact.phone}}"
+           oninput="blockButton('{{thisContact.name}}', '{{thisContact.phone}}')">
+</form>
+
+<div class="controls-wrapper">
+    <div class="form-part control" >
+        <button onclick="editContact()">Edit</button>
+    </div>
+    <div class="form-part control">
+        <button onclick="deleteContact()" id="delete-button">Delete</button>
+    </div>
+    <div class="form-part control" >
+        <button onclick="{{dismiss}}">Cancel</button>
+    </div>
+</div>

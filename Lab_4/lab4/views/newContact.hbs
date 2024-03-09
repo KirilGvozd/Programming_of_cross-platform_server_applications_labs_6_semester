@@ -1,0 +1,25 @@
+<div class="form-part contacts" style="height: 79%;">
+    <div class="list-container blocked" style="height: 30rem;">
+        {{#each contacts}}
+            {{> contact}}
+        {{/each}}
+    </div>
+</div>
+
+
+<form class="form">
+    <div class="controls-wrapper">
+        <input class="input" type="text" required name="name" placeholder="Name">
+        <input class="input" type="tel" required name="phone" placeholder="Phone">
+    </div>
+</form>
+
+
+<div class="controls-wrapper">
+    <div class="form-part control">
+        <button onclick="addContact()">Add</button>
+    </div>
+    <div class="form-part control">
+        <button onclick="{{dismiss}}">Cancel</button>
+    </div>
+</div>

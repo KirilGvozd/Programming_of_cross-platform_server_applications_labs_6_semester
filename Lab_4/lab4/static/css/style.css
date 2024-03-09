@@ -1,0 +1,120 @@
+*, ::after, ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    background-color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+button {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    padding: 2%;
+    border: 1px solid black;
+    border-radius: 1rem;
+    background-color: #ba90fa;
+    font-size: 3rem;
+    font-weight: 700;
+    width: 25rem;
+    cursor: pointer;
+}
+
+input {
+    padding: 3%;
+}
+
+button:not([disabled]):hover  {
+    background-color: #a678ec;
+    color: #000000;
+}
+
+
+.container {
+    width: 50%;
+    margin: 10vh auto 0;
+    padding-top: 5vh;
+    height: 80vh;
+    background-color: #ffffff;
+    /* border: 0.5rem solid black; */
+    /* border-radius: 1rem; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.contact {
+    height: 20%;
+
+    background-color: #eda1fc;
+    border: 0.25rem solid black;
+    margin-bottom: 1rem;
+
+    display: flex;
+    justify-content: space-around;
+    gap: 10rem;
+    align-items: center;
+
+
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.contact:hover {
+    cursor: pointer;
+    background-color: #e28ff3;
+    color: black;
+}
+
+.input {
+    font-size: 1.6em;
+    border-radius: 0.5rem;
+    height: 4vh;
+    background-color: #ffffff;
+    color: black;
+    width: 80%;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form {
+    height: 10vh;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+.contacts {
+    width: 80%;
+    margin-bottom: 5vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls-wrapper {
+    display: flex;
+    height: 100%;
+}
+
+.contacts .list-container {
+    width: 100%;
+    padding: 1rem;
+    border: 4px solid black;
+    height: 32rem;
+    overflow-y: scroll;
+}

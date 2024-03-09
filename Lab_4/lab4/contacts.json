@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "Kirill Gvozdovskiy",
+        "phone": "333755389"
+    },
+    {
+        "id": 2,
+        "name": "Oleg Kozak",
+        "phone": "333444555"
+    },
+    {
+        "id": 3,
+        "name": "Ivan Ivanov",
+        "phone": "111222333"
+    },
+    {
+        "id": 4,
+        "name": "Kira Yoshikage",
+        "phone": "222333444"
+    },
+    {
+        "id": 5,
+        "name": "Hirohiko Araki",
+        "phone": "999888222"
+    }
+]
