@@ -1,3 +1,4 @@
+/*global*/
 *, ::after, ::before {
     margin: 0;
     padding: 0;
@@ -7,15 +8,15 @@
 html, body {
     height: 100%;
     background-color: #ffffff;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 button {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: "Roboto Light", sans-serif;
     padding: 2%;
     border: 1px solid black;
     border-radius: 1rem;
-    background-color: #ba90fa;
+    background-color: #B1DDF1;
     font-size: 3rem;
     font-weight: 700;
     width: 25rem;
@@ -27,7 +28,7 @@ input {
 }
 
 button:not([disabled]):hover  {
-    background-color: #a678ec;
+    background-color: #00F5D4;
     color: #000000;
 }
 
@@ -51,7 +52,7 @@ button:not([disabled]):hover  {
 .contact {
     height: 20%;
 
-    background-color: #eda1fc;
+    background-color: #F15BB5;
     border: 0.25rem solid black;
     margin-bottom: 1rem;
 
@@ -61,7 +62,7 @@ button:not([disabled]):hover  {
     align-items: center;
 
 
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 

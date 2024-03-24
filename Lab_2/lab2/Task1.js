@@ -8,10 +8,11 @@ const {DataTypes, where, Transaction} = require("sequelize");
 const database = new Sequelize('University', 'Kirill_user', '1111', {
     host: 'localhost',
     dialect: 'mssql',
+    hooks: {
     beforeBulkDestroy: (options) => {
         options.individualHooks = true;
         return options;
-    },
+    }},
     pool: {
         max: 10,
         min: 1
@@ -152,7 +153,6 @@ const server = http.createServer((request, response) => {
     else if (request.method === 'GET' && request.url === '/api/transaction') {
         database.transaction().then(async (transaction) => {
             try {
-                // Изменяем вместимость всех аудиторий на 0
                 await Auditorium.update(
                     { capacity: 0 },
                     { where: { capacity: { [Sequelize.Op.gte]: 0 } }, transaction }
@@ -164,11 +164,9 @@ const server = http.createServer((request, response) => {
                 response.end(JSON.stringify('Capacities changed to 0'));
 
                 setTimeout(() => {
-                    // Откатываем транзакцию после 10 секунд
-                    console.log('Transaction rolled back.')
+                    console.log('Transaction rolled back.');
                 }, 10000);
             } catch (error) {
-                // Если возникает ошибка, откатываем транзакцию
                 await transaction.rollback();
                 response.writeHead(500, {'Content-Type': 'application/json'});
                 response.end(JSON.stringify(error));

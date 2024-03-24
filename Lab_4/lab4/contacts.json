@@ -1,27 +1,27 @@
 [
     {
-        "id": 1,
+        "id": "a86d6a0e-fb63-4fe9-b4d2-9c6bda50e935",
         "name": "Kirill Gvozdovskiy",
-        "phone": "333755389"
+        "phone": "+375333755389"
     },
     {
-        "id": 2,
-        "name": "Oleg Kozak",
-        "phone": "333444555"
+        "id": "3cd12bbf-2a7c-4690-b6d4-a5eb09e5e42e",
+        "name": "Alexander Bekish (Legend)",
+        "phone": "+37529666777"
     },
     {
-        "id": 3,
-        "name": "Ivan Ivanov",
-        "phone": "111222333"
+        "id": "9400a563-5611-4217-89c0-f1e3a7c08896",
+        "name": "Avdeeva Vera (Starosta)",
+        "phone": "+375123456"
     },
     {
-        "id": 4,
-        "name": "Kira Yoshikage",
-        "phone": "222333444"
+        "id": "3e95315a-eaf1-486d-8518-f3a0ad1931b4",
+        "name": "Rusak Natalya (The best)",
+        "phone": "+375111111111"
     },
     {
-        "id": 5,
-        "name": "Hirohiko Araki",
-        "phone": "999888222"
+        "id": "f8c73ade-11ba-4c44-bda4-da99ae882686",
+        "name": "fdghjkml",
+        "phone": "23456"
     }
 ]
