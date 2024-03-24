@@ -14,7 +14,7 @@ app.use(session);
 app.use(passport.initialize());
 passport.use(new DigestStrategy({ qop: 'auth' }, (login, done) => {
     console.log(`\nlogin = ${login}`);
-    let returnCode = null;
+    let returnCode;
     let credentials = getCredentials(login);
     if (!credentials) {
         returnCode = done(null, false);
@@ -66,5 +66,4 @@ const getCredentials = login => {
     console.log('Found: ', users.find(user => user.login.toUpperCase() === login.toUpperCase()))
     return users.find(user => user.login.toUpperCase() === login.toUpperCase());
 }
-const verifyPassword = (firstPassword, secondPassword) => firstPassword === secondPassword;
 app.listen(3000, () => console.log(`Server is running at http://localhost:3000\n`));

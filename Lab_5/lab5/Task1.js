@@ -14,7 +14,7 @@ app.use(session);
 app.use(passport.initialize());
 passport.use(new BasicStrategy((login, password, done) => {
     console.log(`\nlogin = ${login}, password = ${password}`);
-    let returnCode = null;
+    let returnCode;
     let credentials = getCredentials(login);
     if (!credentials) {
         returnCode = done(null, false, { message: 'Incorrect login' });
