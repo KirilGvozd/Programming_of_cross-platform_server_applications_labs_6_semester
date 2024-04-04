@@ -8,7 +8,7 @@ const session = require('express-session')({
     saveUninitialized: false,
     secret: '1111'
 });
-const users = JSON.parse(fs.readFileSync('Data.json'));
+const data = JSON.parse(fs.readFileSync('Data.json'));
 
 app.use(session);
 app.use(passport.initialize());
@@ -63,7 +63,7 @@ app.get('*', (request, response) => {
 
 const getCredentials = login => {
     console.log('Login: ', login)
-    console.log('Found: ', users.find(user => user.login.toUpperCase() === login.toUpperCase()))
-    return users.find(user => user.login.toUpperCase() === login.toUpperCase());
+    console.log('Found: ', data.find(user => user.login.toUpperCase() === login.toUpperCase()))
+    return data.find(user => user.login.toUpperCase() === login.toUpperCase());
 }
 app.listen(3000, () => console.log(`Server is running at http://localhost:3000\n`));
