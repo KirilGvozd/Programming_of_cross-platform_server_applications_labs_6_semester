@@ -59,7 +59,7 @@ bot.onText('', (msg) => {
             if(error) {
                 bot.sendMessage(chatId, 'There is an error with getting the joke.');
                 return console.error('Request failed:', error);
-            } else if(response.statusCode != 200) {
+            } else if(response.statusCode !== 200) {
                 bot.sendMessage(chatId, 'Failed to get the joke: ' + response.statusCode);
                 return console.error('Error:', response.statusCode, body.toString('utf8'));
             } else {
@@ -87,7 +87,7 @@ bot.onText('', (msg) => {
             if (error) {
                 bot.sendMessage(chatId, 'There is an error in request!');
                 return console.error('Request failed:', error);
-            } else if(response.statusCode != 200) {
+            } else if(response.statusCode !== 200) {
                 bot.sendMessage(chatId, 'Can\'t find the weather ' + response.statusCode);
                 return console.error('Error:', response.statusCode, body.toString('utf8'));
             } else {
